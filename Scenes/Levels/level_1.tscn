@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbjgxgvyqmjm4"]
+[gd_scene load_steps=5 format=3 uid="uid://cbjgxgvyqmjm4"]
 
 [ext_resource type="Texture2D" uid="uid://brampgysbvp04" path="res://Assets/Tilemap assets/Basetilemap.png" id="1_5m3i2"]
 
@@ -14,6 +14,12 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/3 = SubResource("TileSetAtlasSource_ye4wp")
 
+[sub_resource type="Curve2D" id="Curve2D_4pm8q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -80, -49, 0, 0, 0, 0, 18, -49.9938, 0, 0, 0, 0, 16, 112, 0, 0, 0, 0, 16, 112, 0, 0, 0, 0, 96, 112)
+}
+point_count = 5
+
 [node name="Level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -24,3 +30,8 @@ layer_0/tile_data = PackedInt32Array(65535, 3, 0, 65534, 3, 0, 131070, 3, 0, 131
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, -0.695653)
+scale = Vector2(1, 1.00621)
+curve = SubResource("Curve2D_4pm8q")
