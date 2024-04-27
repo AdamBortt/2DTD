@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dscvemh0k42xe"]
+
+[ext_resource type="Texture2D" uid="uid://cd3mfo1i7mgfp" path="res://Assets/Turrets/SniperT1/Sniper_T1_Foundation.png" id="1_qy81e"]
+[ext_resource type="Script" path="res://Scenes/Turrets/sniper_T1.gd" id="1_xmk0v"]
+[ext_resource type="Texture2D" uid="uid://c0nge4xvyrty2" path="res://Assets/Turrets/SniperT1/Sniper_T1.png" id="2_r3x2t"]
+
+[node name="SniperT1" type="Node2D"]
+script = ExtResource("1_xmk0v")
+
+[node name="Foundation" type="Sprite2D" parent="."]
+texture = ExtResource("1_qy81e")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("2_r3x2t")
+offset = Vector2(9, 0)
+
+[node name="Muzzle" type="Marker2D" parent="Turret"]
+position = Vector2(26, 0)

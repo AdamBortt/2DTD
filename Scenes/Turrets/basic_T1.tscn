@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnvjxxop2lt8y"]
+
+[ext_resource type="Texture2D" uid="uid://27nmgqrud67g" path="res://Assets/Turrets/BasicT1/Basic_T1_Foundation.png" id="1_i6v2v"]
+[ext_resource type="Script" path="res://Scenes/Turrets/basic_T1.gd" id="1_pkbgb"]
+[ext_resource type="Texture2D" uid="uid://c51dw5lorhd8b" path="res://Assets/Turrets/BasicT1/New Piskel-1.png (10).png" id="2_044se"]
+
+[node name="BasicT1" type="Node2D"]
+script = ExtResource("1_pkbgb")
+
+[node name="Foundation" type="Sprite2D" parent="."]
+texture = ExtResource("1_i6v2v")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("2_044se")
+offset = Vector2(6, 0)
+
+[node name="Muzzle" type="Marker2D" parent="Turret"]
+position = Vector2(23, 0)
