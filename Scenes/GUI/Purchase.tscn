@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3h0uar3ogx2a"]
+
+[ext_resource type="Texture2D" uid="uid://cap2urw604bhe" path="res://Assets/UI/Purchase/BaseT1_Purchase.png" id="1_ku26y"]
+[ext_resource type="Texture2D" uid="uid://cx3ljdj6nh7st" path="res://Assets/UI/Purchase/SniperT1_Purchase.png" id="2_huivq"]
+[ext_resource type="Texture2D" uid="uid://cy3eugjdqdpf6" path="res://Assets/UI/Purchase/CannonT1_Purchase.png" id="3_b0xux"]
+
+[node name="Purchase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(-52, -52)
+columns = 3
+
+[node name="BaseT1_Purchase" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_ku26y")
+
+[node name="BaseT2_Purchase" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_huivq")
+
+[node name="BaseT3_Purchase" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_b0xux")
