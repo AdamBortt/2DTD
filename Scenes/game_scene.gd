@@ -1,11 +1,16 @@
 extends Node2D
 
 var map_node
+var purchase_panel
 
 var current_wave = 0
 var enemies_in_wave = 0
 var build_location
-var build_valid = false
+var build_state = false
+
+var purchase_T1_button
+var purchase_T2_button
+var purchase_T3_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +19,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if build_state == true:
+		purchase_T1_button.pressed.connect(build_tower)
+	else:
+		pass
 	
 #BUDOWA WIEŻ
 #kliknięcie w dany tile
@@ -24,18 +32,22 @@ func _input(event):
 		var current_tile = map_node.get_node("BuildFoundation").local_to_map(mouse_position)
 		var tile_position = map_node.get_node("BuildFoundation").map_to_local(current_tile)
 		print(map_node.get_node("BuildFoundation").get_cell_source_id(0, current_tile))
-		if map_node.get_node("BuildFoundation").get_cell_source_id(0, current_tile) == 1:
+		if map_node.get_node("BuildFoundation").get_cell_source_id(0, current_tile) == 1 && build_state == false:
 			var build_location = tile_position
-			build_valid = true
 			print(tile_position)
 			show_ui(tile_position)
 
 #pokazanie ui
 func show_ui(title_position):
-	const purchaseUi = preload("res://Scenes/GUI/Purchase.tscn")
-	var purchase_panel = purchaseUi.instantiate()
+	var purchaseUi = load("res://Scenes/GUI/Purchase.tscn")
+	purchase_panel = purchaseUi.instantiate()
 	purchase_panel.set_position(title_position)
 	get_tree().get_root().add_child(purchase_panel)
+	purchase_T1_button = purchase_panel.get_node("GridContainer/BaseT1_Purchase")
+	build_state = true
+	
+func build_tower():
+	print("build tower triggered")
 
 func start_next_wave():
 	var wave_data = reterieve_wave_data()
