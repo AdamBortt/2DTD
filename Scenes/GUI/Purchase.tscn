@@ -15,20 +15,21 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_direction = 2
+layout_mode = 0
 offset_right = 104.0
 offset_bottom = 104.0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(-52, -52)
 columns = 3
 
-[node name="BaseT1_Purchase" type="TextureButton" parent="GridContainer"]
+[node name="BaseT1_Purchase" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
 layout_mode = 2
 texture_normal = ExtResource("1_ku26y")
 
-[node name="BaseT2_Purchase" type="TextureButton" parent="GridContainer"]
+[node name="BaseT2_Purchase" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
 layout_mode = 2
 texture_normal = ExtResource("2_huivq")
 
-[node name="BaseT3_Purchase" type="TextureButton" parent="GridContainer"]
+[node name="BaseT3_Purchase" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
 layout_mode = 2
 texture_normal = ExtResource("3_b0xux")

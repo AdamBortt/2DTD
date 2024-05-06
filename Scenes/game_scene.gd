@@ -19,11 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if build_state == true:
-		purchase_T1_button.pressed.connect(build_tower)
-	else:
-		pass
-	
+	pass
 #BUDOWA WIEŻ
 #kliknięcie w dany tile
 func _input(event):
@@ -43,11 +39,12 @@ func show_ui(title_position):
 	purchase_panel = purchaseUi.instantiate()
 	purchase_panel.set_position(title_position)
 	get_tree().get_root().add_child(purchase_panel)
-	purchase_T1_button = purchase_panel.get_node("GridContainer/BaseT1_Purchase")
+	for i in get_tree().get_nodes_in_group("build_buttons"):
+		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
 	build_state = true
 	
-func build_tower():
-	print("build tower triggered")
+func build_tower(tower_name):
+	print("build tower triggered", tower_name)
 
 func start_next_wave():
 	var wave_data = reterieve_wave_data()
