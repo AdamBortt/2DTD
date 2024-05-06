@@ -3,11 +3,11 @@
 
 ## Getting the engine
 ### Binary downloads
-### Official binaries for the Godot editor and the export templates can be found on the [Godot website](https://godotengine.org/download/windows/).
+#### Official binaries for the Godot editor and the export templates can be found on the [Godot website](https://godotengine.org/download/windows/).
 
 ## How to play
-### Game does not have any tutorials yet
-### A mause is all you need to play. The Player will have to build the towers to defend their base from attacking enemies who will be coming from the portal and who move along the designated path
+#### Game does not have any tutorials yet.
+#### A mouse is all you need to play. The Player will have to build the towers to defend their base from attacking enemies who will be coming from the portal and who move along the designated path
 
 ## Current goals
 * create basic funcionalites for building towers
@@ -25,7 +25,7 @@
 * add experience points and devekipment tree
 
 ## License
-### Project distributed under the terms of the MIT license, as described in the [LICENSE](LICENCE) file.
+#### Project distributed under the terms of the MIT license, as described in the [LICENSE](LICENCE) file.
 
 ## Developer
 ### [LinkedIn](www.linkedin.com/in/adam-bortkun-60ba26272)
