@@ -8,10 +8,6 @@ var enemies_in_wave = 0
 var build_location
 var build_state = false
 
-var purchase_T1_button
-var purchase_T2_button
-var purchase_T3_button
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("Level1")
@@ -32,16 +28,24 @@ func _input(event):
 			var build_location = tile_position
 			print(tile_position)
 			show_ui(tile_position)
+			build_state = true
+		else:
+			if build_state == true:
+				hide_ui()
 
 #pokazanie ui
 func show_ui(title_position):
 	var purchaseUi = load("res://Scenes/GUI/Purchase.tscn")
 	purchase_panel = purchaseUi.instantiate()
 	purchase_panel.set_position(title_position)
-	get_tree().get_root().add_child(purchase_panel)
+	map_node.add_child(purchase_panel)
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
-	build_state = true
+	
+	
+func hide_ui():
+	map_node.get_node("Purchase").queue_free()
+	build_state = false
 	
 func build_tower(tower_name):
 	print("build tower triggered", tower_name)
