@@ -11,7 +11,10 @@ var build_state = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("Level1")
+	purchase_panel = get_node("Purchase")
 	start_next_wave()
+	for i in get_tree().get_nodes_in_group("build_buttons"):
+		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,7 +22,7 @@ func _process(delta):
 #BUDOWA WIEŻ
 #kliknięcie w dany tile
 func _input(event):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("LeftClick"):
 		var mouse_position = get_global_mouse_position()
 		var current_tile = map_node.get_node("BuildFoundation").local_to_map(mouse_position)
 		var tile_position = map_node.get_node("BuildFoundation").map_to_local(current_tile)
@@ -29,26 +32,21 @@ func _input(event):
 			print(tile_position)
 			show_ui(tile_position)
 			build_state = true
-		else:
-			if build_state == true:
-				hide_ui()
+	else: if Input.is_action_just_pressed("RightClick"):
+		hide_ui()
 
 #pokazanie ui
 func show_ui(title_position):
-	var purchaseUi = load("res://Scenes/GUI/Purchase.tscn")
-	purchase_panel = purchaseUi.instantiate()
+	purchase_panel.visible = true
 	purchase_panel.set_position(title_position)
-	map_node.add_child(purchase_panel)
-	for i in get_tree().get_nodes_in_group("build_buttons"):
-		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
-	
 	
 func hide_ui():
-	map_node.get_node("Purchase").queue_free()
+	purchase_panel.visible = false
 	build_state = false
 	
 func build_tower(tower_name):
 	print("build tower triggered", tower_name)
+	hide_ui()
 
 func start_next_wave():
 	var wave_data = reterieve_wave_data()
