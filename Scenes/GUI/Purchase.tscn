@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="."]
 use_parent_material = true
@@ -24,12 +25,12 @@ scale = Vector2(0.75, 0.75)
 pivot_offset = Vector2(-104, -104)
 columns = 3
 
-[node name="BaseT1_Purchase" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
+[node name="T1_basic" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("1_ku26y")
 
-[node name="BaseT2_Purchase" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
+[node name="T1_sniper" type="TextureButton" parent="GridContainer" groups=["build_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("2_huivq")

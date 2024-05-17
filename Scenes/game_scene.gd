@@ -6,6 +6,7 @@ var purchase_panel
 var current_wave = 0
 var enemies_in_wave = 0
 var build_location
+var build_tile
 var build_state = false
 
 # Called when the node enters the scene tree for the first time.
@@ -24,11 +25,12 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("LeftClick"):
 		var mouse_position = get_global_mouse_position()
-		var current_tile = map_node.get_node("BuildFoundation").local_to_map(mouse_position)
-		var tile_position = map_node.get_node("BuildFoundation").map_to_local(current_tile)
-		print(map_node.get_node("BuildFoundation").get_cell_source_id(0, current_tile))
-		if map_node.get_node("BuildFoundation").get_cell_source_id(0, current_tile) == 1 && build_state == false:
-			var build_location = tile_position
+		var current_tile = map_node.get_node("TileMap").local_to_map(mouse_position)
+		var tile_position = map_node.get_node("TileMap").map_to_local(current_tile)
+		print(map_node.get_node("TileMap").get_cell_source_id(0, current_tile))
+		if map_node.get_node("TileMap").get_cell_source_id(0, current_tile) == 1 && build_state == false:
+			build_location = tile_position
+			build_tile = current_tile
 			print(tile_position)
 			show_ui(tile_position)
 			build_state = true
@@ -45,7 +47,11 @@ func hide_ui():
 	build_state = false
 	
 func build_tower(tower_name):
-	print("build tower triggered", tower_name)
+	var new_tower = load("res://Scenes/Turrets/" + tower_name + ".tscn").instantiate()
+	new_tower.set_position(build_location)
+	map_node.get_node("Turrets").add_child(new_tower, true)
+	map_node.get_node("TileMap").set_cell(0, build_tile, 2, Vector2(2,0))	
+	print("build tower triggered ", tower_name)
 	hide_ui()
 
 func start_next_wave():
