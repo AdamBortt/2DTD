@@ -1,11 +1,27 @@
 extends Control
 
+var t1basicrange = 150
+var t2basicrange = 250
+@onready var sprite = $range_overlay
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sprite.visible = false
+
+func _on_t_1_basic_mouse_entered():
+	var range_texture = sprite
+	var scaling = t1basicrange / 600.0
+	range_texture.scale = Vector2(scaling, scaling)
+	range_texture.visible = true
+
+func _on_t_1_basic_mouse_exited():
+	sprite.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_t_1_sniper_mouse_entered():
+	var range_texture = sprite
+	var scaling = t2basicrange / 600.0
+	range_texture.scale = Vector2(scaling, scaling)
+	range_texture.visible = true
+
+func _on_t_1_sniper_mouse_exited():
+	sprite.visible = false
