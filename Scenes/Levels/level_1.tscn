@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbjgxgvyqmjm4"]
+[gd_scene load_steps=9 format=3 uid="uid://cbjgxgvyqmjm4"]
 
 [ext_resource type="Texture2D" uid="uid://csiosj75cksbs" path="res://Assets/Tilemap assets/Turretbase.png" id="1_4if8a"]
 [ext_resource type="Texture2D" uid="uid://brampgysbvp04" path="res://Assets/Tilemap assets/Basetilemap.png" id="1_5m3i2"]
 [ext_resource type="Texture2D" uid="uid://dn2cg107uhll3" path="res://Assets/Tilemap assets/Obstructed.png" id="1_x1agt"]
-[ext_resource type="PackedScene" uid="uid://bnvjxxop2lt8y" path="res://Scenes/Turrets/T1_basic.tscn" id="3_f2sy6"]
-[ext_resource type="PackedScene" uid="uid://dscvemh0k42xe" path="res://Scenes/Turrets/T1_sniper.tscn" id="4_grf0y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnbb8"]
 texture = ExtResource("1_5m3i2")
@@ -52,9 +50,3 @@ scale = Vector2(1, 1.00621)
 curve = SubResource("Curve2D_4pm8q")
 
 [node name="Turrets" type="Node2D" parent="."]
-
-[node name="BasicT1" parent="Turrets" instance=ExtResource("3_f2sy6")]
-position = Vector2(-17, -16)
-
-[node name="SniperT1" parent="Turrets" instance=ExtResource("4_grf0y")]
-position = Vector2(80, 16)
