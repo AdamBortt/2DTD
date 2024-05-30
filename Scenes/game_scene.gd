@@ -49,6 +49,7 @@ func hide_ui():
 func build_tower(tower_name):
 	var new_tower = load("res://Scenes/Turrets/" + tower_name + ".tscn").instantiate()
 	new_tower.set_position(build_location)
+	new_tower.type = tower_name
 	map_node.get_node("Turrets").add_child(new_tower, true)
 	map_node.get_node("TileMap").set_cell(0, build_tile, 2, Vector2(2,0))	
 	print("build tower triggered ", tower_name)
