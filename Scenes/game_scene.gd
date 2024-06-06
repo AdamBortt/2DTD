@@ -13,7 +13,6 @@ var build_state = false
 func _ready():
 	map_node = get_node("Level1")
 	purchase_panel = get_node("Purchase")
-	start_next_wave()
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
 
