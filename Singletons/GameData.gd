@@ -7,6 +7,6 @@ var tower_data = {
 		"range": 150},
 	"T1_sniper": {
 		"damage": 100,
-		"rof": 0.25,
+		"rof": 4,
 		"range": 250}
 }
