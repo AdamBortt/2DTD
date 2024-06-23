@@ -1,11 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnvjxxop2lt8y"]
+[gd_scene load_steps=8 format=3 uid="uid://bnvjxxop2lt8y"]
 
 [ext_resource type="Script" path="res://Scenes/Turrets/T1_basic.gd" id="1_ydhsx"]
 [ext_resource type="Texture2D" uid="uid://27nmgqrud67g" path="res://Assets/Turrets/BasicT1/Basic_T1_Foundation.png" id="2_27uxe"]
 [ext_resource type="Texture2D" uid="uid://cf7gfbe6hnckn" path="res://Assets/Turrets/BasicT1/BasicT1.png" id="3_jd2w4"]
+[ext_resource type="Texture2D" uid="uid://bxgido78m56x2" path="res://Assets/Turrets/BasicT1/BasicT1_muzzleflash.png" id="4_24akr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dmyt0"]
 radius = 75.0
+
+[sub_resource type="Animation" id="Animation_4qj8v"]
+resource_name = "Fire"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/Muzzle/MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_418yn"]
+_data = {
+"Fire": SubResource("Animation_4qj8v")
+}
 
 [node name="T1_Basic" type="Node2D"]
 script = ExtResource("1_ydhsx")
@@ -20,10 +42,20 @@ offset = Vector2(6, 0)
 [node name="Muzzle" type="Marker2D" parent="Turret"]
 position = Vector2(23, 0)
 
+[node name="MuzzleFlash" type="Sprite2D" parent="Turret/Muzzle"]
+visible = false
+position = Vector2(15, 0)
+texture = ExtResource("4_24akr")
+
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_dmyt0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_418yn")
+}
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

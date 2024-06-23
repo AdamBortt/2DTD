@@ -1,7 +1,7 @@
 extends PathFollow2D
 
-var speed = 75
-var hp = 50
+var speed = GameData.enemy_data["normal_1"]["speed"]
+var hp = GameData.enemy_data["normal_1"]["hp"]
 
 func _physics_process(delta):
 	move(delta)

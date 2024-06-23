@@ -44,9 +44,9 @@ layer_0/tile_data = PackedInt32Array(196606, 0, 0, 262142, 0, 0, 327678, 0, 0, 3
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
+[node name="Turrets" type="Node2D" parent="."]
+
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2(0, -0.695653)
 scale = Vector2(1, 1.00621)
 curve = SubResource("Curve2D_4pm8q")
-
-[node name="Turrets" type="Node2D" parent="."]

@@ -1,6 +1,7 @@
 extends Node2D
 
 var type
+var category
 var enemy_array = []
 var enemy
 var turret_ready = true
@@ -30,9 +31,16 @@ func turn():
 	
 func fire():
 	turret_ready = false
+	if category == "Projectile":
+		fire_gun()
+	elif category == "Laser":
+		pass
 	enemy.on_hit(GameData.tower_data[type]["damage"])
 	await(get_tree().create_timer(GameData.tower_data[type]["rof"]).timeout)
 	turret_ready = true
+	
+func fire_gun():
+	get_node("AnimationPlayer").play("Fire")
 	
 func _on_range_body_entered(body):
 	enemy_array.append(body.get_parent())
