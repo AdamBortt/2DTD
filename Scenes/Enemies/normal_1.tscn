@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://rg01h5inxamh" path="res://Assets/Enemies/Normal1.png" id="1_vixxs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0s4mp"]
-radius = 9.05539
+radius = 9.0
 
 [node name="Normal1" type="PathFollow2D"]
 loop = false
