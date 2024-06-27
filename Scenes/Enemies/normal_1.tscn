@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c36pt40kfvgap"]
+[gd_scene load_steps=5 format=3 uid="uid://c36pt40kfvgap"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/normal_1.gd" id="1_8icv0"]
 [ext_resource type="Texture2D" uid="uid://rg01h5inxamh" path="res://Assets/Enemies/Normal1.png" id="1_vixxs"]
+[ext_resource type="Texture2D" uid="uid://7wls8e45xql5" path="res://Assets/Enemies/HPbar.jpg" id="3_my53w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0s4mp"]
 radius = 9.0
@@ -17,3 +18,16 @@ texture = ExtResource("1_vixxs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_0s4mp")
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_left = -10.0
+offset_top = -14.0
+offset_right = 157.0
+offset_bottom = 10.0
+scale = Vector2(0.12, 0.12)
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_my53w")
+texture_progress = ExtResource("3_my53w")
+tint_under = Color(0.443137, 0.0823529, 0.121569, 1)
+tint_progress = Color(1, 0.152941, 0.109804, 1)
