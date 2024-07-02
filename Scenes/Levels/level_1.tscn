@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbjgxgvyqmjm4"]
+[gd_scene load_steps=11 format=3 uid="uid://cbjgxgvyqmjm4"]
 
 [ext_resource type="Texture2D" uid="uid://csiosj75cksbs" path="res://Assets/Tilemap assets/Turretbase.png" id="1_4if8a"]
 [ext_resource type="Texture2D" uid="uid://brampgysbvp04" path="res://Assets/Tilemap assets/Basetilemap.png" id="1_5m3i2"]
 [ext_resource type="Texture2D" uid="uid://dn2cg107uhll3" path="res://Assets/Tilemap assets/Obstructed.png" id="1_x1agt"]
+[ext_resource type="Script" path="res://Scenes/Levels/Base.gd" id="4_n0k2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnbb8"]
 texture = ExtResource("1_5m3i2")
@@ -34,6 +35,9 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wnb1"]
+size = Vector2(32, 32)
+
 [node name="Level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -50,3 +54,12 @@ zoom = Vector2(2, 2)
 position = Vector2(0, -0.695653)
 scale = Vector2(1, 1.00621)
 curve = SubResource("Curve2D_4pm8q")
+
+[node name="Base" type="Area2D" parent="."]
+script = ExtResource("4_n0k2v")
+
+[node name="BaseCollision" type="CollisionShape2D" parent="Base"]
+position = Vector2(112, 112)
+shape = SubResource("RectangleShape2D_5wnb1")
+
+[connection signal="body_entered" from="Base" to="Base" method="_on_body_entered"]
