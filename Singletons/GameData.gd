@@ -19,5 +19,7 @@ var enemy_data = {
 	"normal_1": {
 		"speed": 50,
 		"hp": 50,
-		"size": 9}
+		"size": 9,
+		"value": 5,
+		"damage": 1}
 }

@@ -2,6 +2,10 @@ extends Node2D
 
 var map_node
 var purchase_panel
+var money_value = 100
+var health_value = 5
+var money_label
+var health_label
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -12,7 +16,12 @@ var build_state = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("Level1")
+	map_node.connect("lose_hp", Callable(self, "take_damage"))	
 	purchase_panel = get_node("Purchase")
+	money_label = get_node("UI/LivesMoney/VBoxContainer/Money")
+	health_label = get_node("UI/LivesMoney/VBoxContainer/Health")
+	health_label.text = str(health_value)
+	money_label.text = str(money_value)	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
 
@@ -70,6 +79,16 @@ func reterieve_wave_data():
 func spawn_enemies(wave_data):
 	for i in wave_data:
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
+		new_enemy.connect("give_money", Callable(self, "add_money"))
 		map_node.get_node("Path2D").add_child(new_enemy, true)
 		await(get_tree().create_timer(i[1]).timeout)
 		
+func add_money(value):
+	money_value = money_value + value
+	money_label.text = str(money_value)
+	print("money added: ", value)
+	
+func take_damage(damage):
+	health_value = health_value - damage
+	health_label.text = str(health_value)
+	print("damage taken: ", damage)

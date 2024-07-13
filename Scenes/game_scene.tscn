@@ -50,5 +50,20 @@ size_flags_vertical = 4
 texture_normal = ExtResource("6_hk3vy")
 stretch_mode = 0
 
+[node name="LivesMoney" type="HBoxContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/LivesMoney"]
+layout_mode = 2
+
+[node name="Money" type="Label" parent="UI/LivesMoney/VBoxContainer"]
+layout_mode = 2
+text = "N/A"
+
+[node name="Health" type="Label" parent="UI/LivesMoney/VBoxContainer"]
+layout_mode = 2
+text = "N/A"
+
 [connection signal="pressed" from="UI/GameControls/PausePlay" to="UI" method="_on_pause_play_pressed"]
 [connection signal="pressed" from="UI/GameControls/SpeedUp" to="UI" method="_on_speed_up_pressed"]

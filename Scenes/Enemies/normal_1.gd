@@ -2,7 +2,11 @@ extends PathFollow2D
 
 var speed = GameData.enemy_data["normal_1"]["speed"]
 var hp = GameData.enemy_data["normal_1"]["hp"]
-var size = GameData.enemy_data["normal_1"]["size"] 
+var size = GameData.enemy_data["normal_1"]["size"]
+var value = GameData.enemy_data["normal_1"]["value"]
+var damage = GameData.enemy_data["normal_1"]["damage"]
+
+signal give_money()
 
 @onready var health_bar = get_node("Healthbar")
 
@@ -26,4 +30,5 @@ func on_hit(damage):
 		on_destroy()
 		
 func on_destroy():
-	self.queue_free()
+	emit_signal("give_money", value)
+	queue_free()
