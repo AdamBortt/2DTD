@@ -71,7 +71,7 @@ func start_next_wave():
 	spawn_enemies(wave_data)
 	
 func reterieve_wave_data():
-	var wave_data = [["Normal_1", 0.7], ["Normal_1", 0.1]]
+	var wave_data = [["Normal_1", 0.7], ["Normal_1", 0.7], ["Normal_1", 0.7], ["Normal_1", 0.7]]
 	current_wave += 1
 	enemies_in_wave = wave_data.size()
 	return wave_data
@@ -79,9 +79,15 @@ func reterieve_wave_data():
 func spawn_enemies(wave_data):
 	for i in wave_data:
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
-		new_enemy.connect("give_money", Callable(self, "add_money"))
+		new_enemy.connect("enemy_destroyed_signal", Callable(self, "enemy_destroyed"))
 		map_node.get_node("Path2D").add_child(new_enemy, true)
 		await(get_tree().create_timer(i[1]).timeout)
+		
+func enemy_destroyed(value):
+	add_money(value)
+	enemies_in_wave = enemies_in_wave - 1
+	if enemies_in_wave == 0:
+		wave_completed()
 		
 func add_money(value):
 	money_value = money_value + value
@@ -91,4 +97,8 @@ func add_money(value):
 func take_damage(damage):
 	health_value = health_value - damage
 	health_label.text = str(health_value)
+	enemies_in_wave = enemies_in_wave - 1
 	print("damage taken: ", damage)
+	
+func wave_completed():
+	print("wave_destroyed")
