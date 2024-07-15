@@ -12,7 +12,8 @@ var tower_data = {
 		"damage": 100,
 		"rof": 4,
 		"range": 250,
-		"category": "Laser"}
+		"category": "Laser",
+		"projectile_type": "T1_laser"}
 }
 
 var enemy_data = {

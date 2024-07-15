@@ -35,7 +35,7 @@ func fire():
 	if category == "Projectile":
 		fire_gun(projectile_type)
 	elif category == "Laser":
-		pass
+		fire_laser(projectile_type)
 	await(get_tree().create_timer(GameData.tower_data[type]["rof"]).timeout)
 	turret_ready = true
 	
@@ -47,6 +47,9 @@ func fire_gun(projectile_type):
 	new_bullet.target = enemy
 	new_bullet.turret_name = type
 	get_parent().add_child(new_bullet, true)
+	
+func fire_laser(projectile_type):
+	enemy.on_hit(GameData.tower_data[type]["damage"])
 	
 func _on_range_body_entered(body):
 	enemy_array.append(body.get_parent())
