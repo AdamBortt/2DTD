@@ -5,7 +5,7 @@ var target
 var turret_name
 		
 func _process(delta):
-	if target && target.is_inside_tree():
+	if target && target != null:
 		var direction = (target.position - position).normalized()
 		position += direction * speed * delta
 		if position.distance_to(target.position) < target.size:
