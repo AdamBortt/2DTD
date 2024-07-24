@@ -13,6 +13,8 @@ var build_location
 var build_tile
 var build_state = false
 
+var break_state = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	map_node = get_node("Level1")
@@ -101,4 +103,6 @@ func take_damage(damage):
 	print("damage taken: ", damage)
 	
 func wave_completed():
+	break_state = true
+	get_node("UI/GameControls/PausePlay").set_pressed(false)
 	print("wave_destroyed")
