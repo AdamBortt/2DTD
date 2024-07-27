@@ -102,6 +102,9 @@ func spawn_enemies(wave_data):
 func enemy_destroyed(value):
 	add_money(value)
 	enemies_in_wave = enemies_in_wave - 1
+	check_wave_status()
+		
+func check_wave_status():
 	if enemies_in_wave == 0:
 		wave_completed()
 		
@@ -115,6 +118,7 @@ func take_damage(damage):
 	health_label.text = str(health_value)
 	enemies_in_wave = enemies_in_wave - 1
 	print("damage taken: ", damage)
+	check_wave_status()
 	
 func wave_completed():
 	break_state = true
