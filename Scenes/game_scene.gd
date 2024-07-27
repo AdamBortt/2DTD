@@ -25,7 +25,7 @@ func _ready():
 	health_label.text = str(health_value)
 	money_label.text = str(money_value)	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
-		i.connect("pressed", Callable(self, "build_tower").bind(i.get_name()))
+		i.connect("pressed", Callable(self, "build_tower_request").bind(i.get_name()))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -55,6 +55,20 @@ func show_ui(title_position):
 func hide_ui():
 	purchase_panel.visible = false
 	build_state = false
+	
+func build_tower_request(tower_name):
+	if check_cost(tower_name):
+		build_tower(tower_name)
+		
+func check_cost(tower_name):
+	var tower_cost = GameData.tower_data[tower_name]["cost"]
+	if tower_cost <= money_value:
+		money_value = money_value - tower_cost
+		money_label.text = str(money_value)
+		return true
+	else:
+		print("NOT ENOUGH MONEY!")
+		return false
 	
 func build_tower(tower_name):
 	var new_tower = load("res://Scenes/Turrets/" + tower_name + ".tscn").instantiate()

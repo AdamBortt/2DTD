@@ -2,6 +2,7 @@ extends Node
 
 var tower_data = {
 	"T1_basic": {
+		"cost": 20,
 		"damage": 20,
 		"rof": 1,
 		"range": 150,
@@ -9,6 +10,7 @@ var tower_data = {
 		"projectile_type": "T1_projectile",
 		"projectile_speed": 300},
 	"T1_sniper": {
+		"cost": 80,
 		"damage": 100,
 		"rof": 4,
 		"range": 250,
