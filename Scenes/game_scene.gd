@@ -76,6 +76,7 @@ func build_tower(tower_name):
 	new_tower.type = tower_name
 	new_tower.category = GameData.tower_data[tower_name]["category"]
 	new_tower.projectile_type = GameData.tower_data[tower_name]["projectile_type"]
+	new_tower.rotation_speed = GameData.tower_data[tower_name]["rotation_speed"]
 	map_node.get_node("Turrets").add_child(new_tower, true)
 	map_node.get_node("TileMap").set_cell(0, build_tile, 2, Vector2(2,0))	
 	print("build tower triggered ", tower_name)
