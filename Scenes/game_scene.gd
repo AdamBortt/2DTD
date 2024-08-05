@@ -100,7 +100,18 @@ func spawn_enemies(wave_data):
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
 		new_enemy.connect("enemy_destroyed_signal", Callable(self, "enemy_destroyed"))
 		map_node.get_node("Path2D").add_child(new_enemy, true)
-		await(get_tree().create_timer(i[1]).timeout)
+		await time_between_waves(i[1])
+		
+func time_between_waves(i):
+# Stworzenie i skonfigurowanie Timer
+	var timer = Timer.new()
+	timer.set_wait_time(i)
+	timer.one_shot = true
+	add_child(timer)
+	timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	timer.start()
+	await timer.timeout
+	timer.queue_free()
 		
 func enemy_destroyed(value):
 	add_money(value)
