@@ -2,9 +2,9 @@ extends Node
 
 var tower_data = {
 	"T1_basic": {
-		"cost": 20,
-		"damage": 20,
-		"rof": 0.5,
+		"cost": 40,
+		"damage": 10,
+		"rof": 0.4,
 		"rotation_speed": 5,
 		"range": 150,
 		"category": "Projectile",
@@ -13,7 +13,7 @@ var tower_data = {
 	"T1_sniper": {
 		"cost": 80,
 		"damage": 40,
-		"rof": 3,
+		"rof": 2,
 		"rotation_speed": 2,
 		"range": 250,
 		"category": "Laser",
@@ -23,7 +23,7 @@ var tower_data = {
 var enemy_data = {
 	"normal_1": {
 		"speed": 50,
-		"hp": 50,
+		"hp": 40,
 		"size": 9,
 		"value": 5,
 		"damage": 1}
