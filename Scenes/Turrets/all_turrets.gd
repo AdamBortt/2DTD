@@ -73,7 +73,6 @@ func fire_laser(projectile_type):
 	
 func _on_range_body_entered(body):
 	enemy_array.append(body.get_parent())
-	print(enemy_array)
 
 func _on_range_body_exited(body):
 	enemy_array.erase(body.get_parent())

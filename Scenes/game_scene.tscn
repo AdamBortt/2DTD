@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dut6ggmilhpsk"]
+[gd_scene load_steps=9 format=3 uid="uid://dut6ggmilhpsk"]
 
+[ext_resource type="Script" path="res://Scenes/game_scene.gd" id="1_h2hyp"]
 [ext_resource type="PackedScene" uid="uid://cbjgxgvyqmjm4" path="res://Scenes/Levels/level_1.tscn" id="1_jbi5k"]
-[ext_resource type="Script" path="res://Scenes/game_scene.gd" id="1_tkd0n"]
+[ext_resource type="Script" path="res://Scenes/wave_scaling.gd" id="1_qglj4"]
 [ext_resource type="PackedScene" uid="uid://d3h0uar3ogx2a" path="res://Scenes/GUI/Purchase.tscn" id="3_2bds7"]
 [ext_resource type="Texture2D" uid="uid://caqyk0fvsgklv" path="res://Assets/UI/Interface/right.png" id="4_lsg41"]
 [ext_resource type="Script" path="res://Scenes/UI.gd" id="4_rewwy"]
@@ -9,12 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://chuferr4ycl6m" path="res://Assets/UI/Interface/fastForward.png" id="6_hk3vy"]
 
 [node name="GameScene" type="Node2D"]
-script = ExtResource("1_tkd0n")
+process_mode = 1
+script = ExtResource("1_h2hyp")
 
 [node name="Level1" parent="." instance=ExtResource("1_jbi5k")]
 
 [node name="Purchase" parent="." instance=ExtResource("3_2bds7")]
 visible = false
+
+[node name="Wave_scaling" type="Node" parent="."]
+script = ExtResource("1_qglj4")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("4_rewwy")

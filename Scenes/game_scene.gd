@@ -37,7 +37,7 @@ func _input(event):
 		var mouse_position = get_global_mouse_position()
 		var current_tile = map_node.get_node("TileMap").local_to_map(mouse_position)
 		var tile_position = map_node.get_node("TileMap").map_to_local(current_tile)
-		print(map_node.get_node("TileMap").get_cell_source_id(0, current_tile))
+		print("Tile id: ", map_node.get_node("TileMap").get_cell_source_id(0, current_tile))
 		if map_node.get_node("TileMap").get_cell_source_id(0, current_tile) == 1 && build_state == false:
 			build_location = tile_position
 			build_tile = current_tile
@@ -88,9 +88,11 @@ func start_next_wave():
 	spawn_enemies(wave_data)
 	
 func reterieve_wave_data():
-	var wave_data = [["Normal_1", 0.7], ["Normal_1", 0.7], ["Normal_1", 0.7], ["Normal_1", 0.7]]
 	current_wave += 1
+	var wave_data = map_node.wave_setup(current_wave)
 	enemies_in_wave = wave_data.size()
+	print("current_wave: ", current_wave)
+	print("Wave started! wave_data: ", wave_data)
 	return wave_data
 	
 func spawn_enemies(wave_data):
