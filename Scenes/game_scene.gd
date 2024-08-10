@@ -6,6 +6,7 @@ var money_value = 100
 var health_value = 5
 var money_label
 var health_label
+var wave_number_label
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -22,6 +23,7 @@ func _ready():
 	purchase_panel = get_node("Purchase")
 	money_label = get_node("UI/LivesMoney/VBoxContainer/Money")
 	health_label = get_node("UI/LivesMoney/VBoxContainer/Health")
+	wave_number_label = get_node("UI/LivesMoney/VBoxContainer/HBoxContainer/WaveNumber")
 	health_label.text = str(health_value)
 	money_label.text = str(money_value)	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
@@ -83,12 +85,13 @@ func build_tower(tower_name):
 	hide_ui()
 
 func start_next_wave():
+	current_wave += 1	
+	wave_number_label.text = str(current_wave)
 	var wave_data = reterieve_wave_data()
 	await(get_tree().create_timer(0.2).timeout)
 	spawn_enemies(wave_data)
 	
 func reterieve_wave_data():
-	current_wave += 1
 	var wave_data = map_node.wave_setup(current_wave)
 	enemies_in_wave = wave_data.size()
 	print("current_wave: ", current_wave)
