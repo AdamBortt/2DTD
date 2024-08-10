@@ -36,6 +36,7 @@ script = ExtResource("1_ydhsx")
 texture = ExtResource("2_27uxe")
 
 [node name="Turret" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("3_jd2w4")
 offset = Vector2(6, 0)
 
