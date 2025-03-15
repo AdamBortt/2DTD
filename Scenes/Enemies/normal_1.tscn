@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c36pt40kfvgap"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/normal_1.gd" id="1_8icv0"]
+[ext_resource type="Script" uid="uid://btv1wcio11b5s" path="res://Scenes/Enemies/normal_1.gd" id="1_8icv0"]
 [ext_resource type="Texture2D" uid="uid://rg01h5inxamh" path="res://Assets/Enemies/Normal1.png" id="1_vixxs"]
 [ext_resource type="Texture2D" uid="uid://7wls8e45xql5" path="res://Assets/Enemies/HPbar.jpg" id="3_my53w"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dscvemh0k42xe"]
 
-[ext_resource type="Script" path="res://Scenes/Turrets/T1_sniper.gd" id="1_8o5q2"]
+[ext_resource type="Script" uid="uid://cjcw8t025j160" path="res://Scenes/Turrets/T1_sniper.gd" id="1_8o5q2"]
 [ext_resource type="Texture2D" uid="uid://cd3mfo1i7mgfp" path="res://Assets/Turrets/SniperT1/Sniper_T1_Foundation.png" id="2_bbyaa"]
 [ext_resource type="Texture2D" uid="uid://c0nge4xvyrty2" path="res://Assets/Turrets/SniperT1/Sniper_T1.png" id="3_1tfpt"]
 

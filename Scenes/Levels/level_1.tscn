@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csiosj75cksbs" path="res://Assets/Tilemap assets/Turretbase.png" id="1_4if8a"]
 [ext_resource type="Texture2D" uid="uid://brampgysbvp04" path="res://Assets/Tilemap assets/Basetilemap.png" id="1_5m3i2"]
-[ext_resource type="Script" path="res://Scenes/Levels/level_1.gd" id="1_rdhvj"]
+[ext_resource type="Script" uid="uid://obafil13e5cv" path="res://Scenes/Levels/level_1.gd" id="1_rdhvj"]
 [ext_resource type="Texture2D" uid="uid://dn2cg107uhll3" path="res://Assets/Tilemap assets/Obstructed.png" id="1_x1agt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dnbb8"]

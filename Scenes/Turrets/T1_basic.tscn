@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnvjxxop2lt8y"]
 
-[ext_resource type="Script" path="res://Scenes/Turrets/T1_basic.gd" id="1_ydhsx"]
+[ext_resource type="Script" uid="uid://osrqox2maavq" path="res://Scenes/Turrets/T1_basic.gd" id="1_ydhsx"]
 [ext_resource type="Texture2D" uid="uid://27nmgqrud67g" path="res://Assets/Turrets/BasicT1/Basic_T1_Foundation.png" id="2_27uxe"]
 [ext_resource type="Texture2D" uid="uid://cf7gfbe6hnckn" path="res://Assets/Turrets/BasicT1/BasicT1.png" id="3_jd2w4"]
 [ext_resource type="Texture2D" uid="uid://bxgido78m56x2" path="res://Assets/Turrets/BasicT1/BasicT1_muzzleflash.png" id="4_24akr"]
@@ -26,7 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_418yn"]
 _data = {
-"Fire": SubResource("Animation_4qj8v")
+&"Fire": SubResource("Animation_4qj8v")
 }
 
 [node name="T1_Basic" type="Node2D"]

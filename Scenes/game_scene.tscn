@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dut6ggmilhpsk"]
 
-[ext_resource type="Script" path="res://Scenes/game_scene.gd" id="1_h2hyp"]
+[ext_resource type="Script" uid="uid://ix0tur4v6pnf" path="res://Scenes/game_scene.gd" id="1_h2hyp"]
 [ext_resource type="PackedScene" uid="uid://cbjgxgvyqmjm4" path="res://Scenes/Levels/level_1.tscn" id="1_jbi5k"]
-[ext_resource type="Script" path="res://Scenes/wave_scaling.gd" id="1_qglj4"]
+[ext_resource type="Script" uid="uid://hjc3h53l2sq7" path="res://Scenes/wave_scaling.gd" id="1_qglj4"]
 [ext_resource type="PackedScene" uid="uid://d3h0uar3ogx2a" path="res://Scenes/GUI/Purchase.tscn" id="3_2bds7"]
 [ext_resource type="Texture2D" uid="uid://caqyk0fvsgklv" path="res://Assets/UI/Interface/right.png" id="4_lsg41"]
-[ext_resource type="Script" path="res://Scenes/UI.gd" id="4_rewwy"]
+[ext_resource type="Script" uid="uid://6ykqxmmms862" path="res://Scenes/UI.gd" id="4_rewwy"]
 [ext_resource type="Texture2D" uid="uid://bi7durr2bfqw5" path="res://Assets/UI/Interface/pause.png" id="5_qteup"]
 [ext_resource type="Texture2D" uid="uid://chuferr4ycl6m" path="res://Assets/UI/Interface/fastForward.png" id="6_hk3vy"]
 
