@@ -21,9 +21,9 @@ func _ready():
 	map_node = get_node("Level1")
 	map_node.connect("lose_hp", Callable(self, "take_damage"))	
 	purchase_panel = get_node("Purchase")
-	money_label = get_node("UI/LivesMoney/VBoxContainer/Money")
+	money_label = get_node("UI/LivesMoney/VBoxContainer/HBoxContainerMoney/MoneyNumber")
 	health_label = get_node("UI/LivesMoney/VBoxContainer/Health")
-	wave_number_label = get_node("UI/LivesMoney/VBoxContainer/HBoxContainer/WaveNumber")
+	wave_number_label = get_node("UI/LivesMoney/VBoxContainer/HBoxContainerWave/WaveNumber")
 	health_label.text = str(health_value)
 	money_label.text = str(money_value)	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
